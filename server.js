@@ -8,7 +8,7 @@ const port = 3000
 
 const app = express()
 
-app.use(express.static(path.join(__dirname, 'dist')))
+app.use(express.static(path.join(__dirname, 'dist/ngApp1')))
 
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
