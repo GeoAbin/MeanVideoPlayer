@@ -1,31 +1,45 @@
 import { Component, OnInit } from '@angular/core';
 import {Video} from './../video'
+import { VideoService } from '../video.service';
 
 @Component({
   selector: 'app-video-center',
   templateUrl: './video-center.component.html',
-  styleUrls: ['./video-center.component.css']
+  styleUrls: ['./video-center.component.css'],
+  providers: [VideoService]
 })
 export class VideoCenterComponent implements OnInit {
 
-  videos: Video[] = [
-    {"_id":"1", "title": "Title 1", "url": "url 1", "description": "desc 1" },
-    {"_id":"2", "title": "Title 2", "url": "url 2", "description": "desc 2" },
-    {"_id":"3", "title": "Title 3", "url": "url 3", "description": "desc 3" },
-    {"_id":"4", "title": "Title 4", "url": "url 4", "description": "desc 4" }
-  ]
+  videos: any
 
   selectedVideo:Video
+  //public hidenewVideo:boolean=true
 
-  constructor() { }
+  constructor(private videoService:VideoService) { }
 
   ngOnInit(): void {
+    this.videoService.getVideos().subscribe(videofetched=> this.videos=videofetched)
   }
 
   onSelectVideo(video:any)
   {
     this.selectedVideo=video
+    //this.hidenewVideo=true
     console.log(this.selectedVideo)
   }
+
+  // newVideo()
+  // {
+  //   this.hidenewVideo=false
+  // }
+
+  // onSubmitAddVideo(video:any)
+  // {
+  //   this.videoService.addVideo(video).subscribe(videoAdded=>{
+  //     this.videos.push(videoAdded);
+  //     this.hidenewVideo=true;
+  //     console.log(videoAdded);
+  //   });
+  // }
 
 }
