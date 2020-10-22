@@ -12,7 +12,8 @@ export class VideoService {
 
   public getUrl="/api/videos"
   public postUrl="/api/video/"
-
+  public putUrl="/api/video"
+  public delUrl="/api/video/"
 
   getVideos()
   {
@@ -22,6 +23,16 @@ export class VideoService {
   addVideo(video:Video)
   {
     return this.http.post(this.postUrl,video,{responseType:'json'})
+  }
+
+  updateVideo(video:Video)
+  {
+    return this.http.put(this.putUrl+video._id,video,{responseType:'json'})
+  }
+
+  deleteVideo(video:Video)
+  {
+    return this.http.delete(this.delUrl + video._id,{responseType:'json'});
   }
 
 }

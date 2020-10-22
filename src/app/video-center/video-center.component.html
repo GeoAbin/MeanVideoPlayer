@@ -20,7 +20,11 @@
       </form>
     </div>
   </div>
-    <app-video-detail *ngIf="selectedVideo &&  hidenewVideo" [video]="selectedVideo" > </app-video-detail>
+    <app-video-detail
+    (updateVideoEvent)="onUpdateVideoEvent($event)"
+    (deleteVideoEvent)="onDeleteVideoEvent($event)"
+    *ngIf="selectedVideo &&  hidenewVideo"
+    [video]="selectedVideo" > </app-video-detail>
   </div>
 </div>
 <div class="row">
