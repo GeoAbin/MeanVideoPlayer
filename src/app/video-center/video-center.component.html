@@ -26,10 +26,11 @@
     *ngIf="selectedVideo &&  hidenewVideo"
     [video]="selectedVideo" > </app-video-detail>
   </div>
-</div>
-<div class="row">
+
+
   <div class="col-sm-3">
-     <button (click)="newVideo()" style="margin-bottom:2px" type="button" class="btn btn-success btn-block">+ New Video</button>
+     <button (click)="newVideo()" style="margin-bottom:2px" type="button" class="btn btn-success btn-block">Add New Video</button>
     <app-video-list (SelectVideo)="onSelectVideo($event)" [videolist]="videos"></app-video-list>
   </div>
-</div>
+  </div>
+

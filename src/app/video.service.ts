@@ -12,7 +12,7 @@ export class VideoService {
 
   public getUrl="/api/videos"
   public postUrl="/api/video/"
-  public putUrl="/api/video"
+  public putUrl="/api/video/"
   public delUrl="/api/video/"
 
   getVideos()
